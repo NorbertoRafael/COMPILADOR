@@ -1,0 +1,25 @@
+//Norberto Andrango
+/*Hola esto es
+una prueba*/ 
+int a;
+a = 84;
+if(a==b && b!=0 || !a)then{
+a==-3.23;
+c='c';
+
+caracol="animal";
+return false;
+}
+else return true;
+do{
+input;
+output;
+
+for(a:b){
+caracol=-5+3;
+}
+
+}
+while(k>0)
+\\
+else return "Hola Mundo";
