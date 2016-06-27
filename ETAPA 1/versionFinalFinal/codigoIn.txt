@@ -1,8 +1,0 @@
- 
-int a;
-a = 84;
-if(a==b){
-return false;
-}
-\\
-else return "Hola Mundo";
