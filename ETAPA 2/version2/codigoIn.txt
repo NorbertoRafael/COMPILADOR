@@ -1,0 +1,12 @@
+int: float:robot,int:seros, char:huevo;
+int: local1; float: local2;
+{
+if a>b then 
+b=8;
+else
+c='a';
+
+then while a>0
+g=0;
+
+}

@@ -7,7 +7,8 @@ void yyerror(char *);
 %}
 
 opComparacion		("<="|">="|"!="|">"|"<"|"=="|"!=")
-opAritmetico		("+"|"-"|"*"|"/")
+opAdd			("+"|"-")
+opMul			("*"|"/")
 identificador		[a-zA-Z]([a-zA-Z]|[0-9]|"_")*
 literalInt		("-"?[0-9]*)
 literalChar		\'.\'
@@ -35,11 +36,11 @@ input			return INPUT;
 output			return OUTPUT;
 return			return RETURN;
 
-int[ \t]+		return INT;
-float[ \t]+		return FLOAT;
-bool[ \t]+		return BOOL;
-char[ \t]+		return CHAR;
-string[ \t]+		return STRING;
+int			return INT;
+float			return FLOAT;
+bool			return BOOL;
+char			return CHAR;
+string			return STRING;
 
 ,			return COMA;
 ;			return PNTCOMA;
@@ -57,12 +58,14 @@ string[ \t]+		return STRING;
 "$"			return MONEDA;
 "="			return IGUAL;
 
+
 "||"			return DISYUNCION;
 "&&"			return CONJUNCION;
 "!"			return NEGACION;
 "&"			return AMPERSAND;
 
-{opAritmetico}		return ARITMETICO;
+{opAdd}			return ADD;
+{opMul}			return MUL;
 
 {literalChar}		return LITERALCHAR;
 {literalFloat}		return LITERALFLOAT;
