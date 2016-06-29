@@ -42,22 +42,33 @@
 %token LITERALINT
 %token LITERALBOOL
 %token IDENTIFICADOR
+%token ERROR
 %%
 
 
+programa:globales funciones
+{
+         printf("\n>>Analisis Lexico completado sin errores!\n>>Analisis sintactico completado sin errores!\n");
+                  
+        };
 
-funcion : encabezado locales cuerpo
-       { 
-         printf("\n Syntactical Analisys done without erros!\n"); 
-         return 0; 
-	}; 
+globales:declaracion inicializar;
+declaracion: variable PNTCOMA
+		|variable CORCHETEA LITERALINT CORCHETEC PNTCOMA
+		|variable PNTCOMA declaracion
+		|variable CORCHETEA LITERALINT CORCHETEC PNTCOMA declaracion;
+inicializar: Atribucion
+		|Atribucion inicializar;
+
+funciones: 
+	|funcion funciones;
+
+funcion : encabezado locales cuerpo; 
 
 encabezado: tipo DOSPUNTOS atributos PNTCOMA;
 locales: variable PNTCOMA
 	|variable PNTCOMA locales
 ;
-
-
 
 atributos:|variable
 	|variable COMA atributos;
@@ -75,6 +86,7 @@ lista_comandos: lista_comandos comando
 comando: comandoIF
 	|comandoWH
 	|Atribucion
+	|return
 	|cuerpo;
 
 comandoIF: IF expL THEN comando
@@ -82,11 +94,15 @@ comandoIF: IF expL THEN comando
 
 comandoWH: WHILE expL DO comando;
 
-Atribucion: IDENTIFICADOR IGUAL expA PNTCOMA;
+Atribucion: IDENTIFICADOR IGUAL expA PNTCOMA
+	|IDENTIFICADOR CORCHETEA expA CORCHETEC IGUAL expA PNTCOMA;
+
+return: RETURN expA PNTCOMA;
 
 expL: expA COMPARADOR expA
-	|expA COMPARADOR expA CONJUNCION expL
-	|expA COMPARADOR expA DISYUNCION expL;
+	|expL CONJUNCION expL
+	|expL DISYUNCION expL
+	|PARENTESISA expL PARENTESISC;
 
 expA: expBasica ADD expBasica
 	|expBasica MUL expBasica

@@ -544,7 +544,7 @@ char *yytext;
 #include <stdio.h>
 int linea=1;
 void yyerror(char *);
-#include "AnalisisLex2.tab.h"
+#include "AnalisisSin2.tab.h"
 
 #line 550 "lex.yy.c"
 
@@ -1050,7 +1050,7 @@ case 45:
 YY_RULE_SETUP
 #line 78 "AnalisisLex2.lex"
 {
-printf("%s\t,Error lexico, linea: %d\n", yytext, linea);}
+printf("%s\t,Error lexico, linea: %d\n", yytext, linea);return ERROR;}
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
