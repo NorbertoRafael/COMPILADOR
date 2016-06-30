@@ -1,0 +1,36 @@
+//ESTO ES UNA PRUEBA
+int:global1;
+char:global2;
+string:global3;
+float:global4 [3];
+global1=0;
+global2=0;
+global3=0;
+
+int: int:parametro1, float:parametro2, string:parametro3;
+int: local1; float: local2; 
+string: nina;
+{
+if a>b then 
+b=8.23;
+else
+c='a';
+g=0;
+perro=input();
+girafa=input("Ingrese dato");
+output("Buenos dias");
+vector[a+3]=(3+t)*5;
+return 0;
+}
+
+char: int:contador, float:precio;
+bool:bandera;
+int: soles;
+{
+while (z>3 && (t==FALSE || g>3+y))
+do
+g=0;
+bandera=FALSE;
+return 1;
+
+}
